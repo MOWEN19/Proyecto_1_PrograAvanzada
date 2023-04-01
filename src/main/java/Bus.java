@@ -15,9 +15,6 @@ public class Bus{
       this.cantPasajeros = 0;
     }
 
-    Bus() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     //Funcion para mostrar los pasajeros en orden
     public void listarPasajero(){

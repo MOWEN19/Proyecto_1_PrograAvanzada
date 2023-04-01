@@ -14,6 +14,8 @@ public class Main {
           
           Bus BB = new Bus("Quilpue");
           Ter.agregarBus("Quilpue", BB);
+          Pasajero Puppy = new Pasajero("Claudio","88569854-5");
+          BB.agregarPasajero(Puppy);
           System.out.println(((Bus)(Ter.andenes.get("Quilpue"))).getDestino());
           //System.out.println(Ter);
           System.out.println("HolaMundo");
@@ -21,8 +23,7 @@ public class Main {
           
           
           
-          
-          /*
+                      /*
           switch(i) {
           case 0 -> System.out.println("i es cero.");
           case 1 -> System.out.println("i es uno.");
