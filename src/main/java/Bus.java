@@ -4,7 +4,7 @@ public class Bus{
     // private Pasajero[] listado;
     //la llave seria el numero de asiento, el valor seria la persona
     HashMap<Integer, Pasajero> listado;
-    private int cantPasajeros;
+    //private int cantPasajeros;
     private String destino;
     
 
@@ -12,14 +12,14 @@ public class Bus{
       this.listado = new HashMap<>();
       
       this.destino = destino;
-      this.cantPasajeros = 0;
+      //this.cantPasajeros = 0;
     }
 
 
     //Funcion para mostrar los pasajeros en orden
     public void listarPasajero(){
       //System.out.println(listado);
-      for(int i = 0;i<=20;i++){
+      for(int i = 1;i<=20;i++){
         if(listado.containsKey(i)){
           System.out.println(i + listado.get(i).getNombre());
         }
@@ -47,6 +47,7 @@ public class Bus{
       for(int i=0;i<=20;i++){
         if(!listado.containsKey(i)){
           listado.put(i,pasajero);
+          return;
         }
       }
     }

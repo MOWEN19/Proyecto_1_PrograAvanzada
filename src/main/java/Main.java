@@ -12,22 +12,26 @@ public class Main {
     public static void main(String arg[ ] ) throws IOException{  
           BufferedReader lector = new BufferedReader( new InputStreamReader( System.in ) );
           System.out.println("i es cero.");
-          int i = Integer.parseInt(lector.readLine());
+          //int i = Integer.parseInt(lector.readLine());
           
           Terminal Ter = new Terminal(); 
+          
+          // metodo de la clase Terminal que leeria los datos de Personasa y los almacenaría  
+          Ter.leerPasajeros();
+          System.out.println("pasajeros leidos");
           
           Bus BB = new Bus("Quilpue");
           Ter.agregarBus("Quilpue", BB);
           Pasajero Puppy = new Pasajero("Claudio","88569854-5");
           BB.agregarPasajero(Puppy,5);
-          System.out.println();
+          //System.out.println();
           ((Bus)(Ter.andenes.get("Quilpue"))).listarPasajero();
           //System.out.println(Ter);
           System.out.println("HolaMundo");
           
           
           
-                
+          int i = 0;      
           while(i!=0){
               System.out.println("Presione 0 para terminar");
               System.out.println("Presione 1 para agregar pasajero");                 
