@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Bus{
     // private Pasajero[] listado;
     //la llave seria el numero de asiento, el valor seria la persona
-    HashMap<Integer, Pasajero> listado;
+    private HashMap<Integer, Pasajero> listado;
     //private int cantPasajeros;
     private String destino;
     
@@ -55,13 +55,15 @@ public class Bus{
 
     // Funcion para eliminar personas de acuerdo a un rut especifico
     public void eliminarPasajero(String rut){
-      for(int i=0;i<=20;i++){
-        if(listado.containsKey(i)){}
-          if(listado.get(i).equals(rut)){
-            listado.remove(i);
-            return;
-          }
+      for(int i=1;i<=20;i++){
+        if(listado.containsKey(i)){
+        //((Pasajero)(listado.get(i)).getRut())  
+            if((((Pasajero)(listado.get(i))).getRut()).equals(rut)){
+                listado.remove(i);
+                return;
+            }
         }
+      }
     }
     
     

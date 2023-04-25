@@ -18,20 +18,21 @@ public class Main {
           
           // metodo de la clase Terminal que leeria los datos de Personasa y los almacenaría  
           Ter.leerPasajeros();
+          
           System.out.println("pasajeros leidos");
           
           Bus BB = new Bus("Quilpue");
           Ter.agregarBus("Quilpue", BB);
-          Pasajero Puppy = new Pasajero("Claudio","88569854-5");
+          Pasajero Puppy = new Pasajero("Claudio","88569854-5","aMayor");
           BB.agregarPasajero(Puppy,5);
           //System.out.println();
-          ((Bus)(Ter.andenes.get("Quilpue"))).listarPasajero();
+          Ter.obtenerBus("Quilpue").listarPasajero();
           //System.out.println(Ter);
           System.out.println("HolaMundo");
+          int i=-1;
           
           
-          
-          int i = 0;      
+          //int i = 0;      
           while(i!=0){
               System.out.println("Presione 0 para terminar");
               System.out.println("Presione 1 para agregar pasajero");                 
@@ -40,6 +41,8 @@ public class Main {
               System.out.println("Presione 4 para agregar Bus al Terminal");
               int seleccion ;
               String nombrePasajero, destino, rut;
+              System.out.println("Ingrese opcion");
+              i = Integer.parseInt(lector.readLine());
               switch(i) {
                   
                 case 0:
@@ -60,7 +63,7 @@ public class Main {
                   
                     System.out.println("Ingrese Destino");
                     destino = lector.readLine();
-                    if(!Ter.andenes.containsKey(destino)){
+                    if(Ter.obtenerBus(destino)==null){
                         System.out.println("No se ha encontrado el destino");
                         break;
                     }
@@ -68,22 +71,22 @@ public class Main {
                     Puppy.setRut(rut);
                     
                     if (seleccion == 0){
-                        ((Bus)(Ter.andenes.get(destino))).agregarPasajero(Puppy);
+                        Ter.obtenerBus(destino).agregarPasajero(Puppy);
                     }
                     else{
-                        ((Bus)(Ter.andenes.get(destino))).agregarPasajero(Puppy,seleccion);
+                         Ter.obtenerBus(destino).agregarPasajero(Puppy,seleccion);
                     }
                   break;
                 case 2:
                    destino = lector.readLine();
-                   ((Bus)(Ter.andenes.get(destino))).listarPasajero();
+                   Ter.obtenerBus(destino).listarPasajero();
                   break;
                 case 3:
                     System.out.println("Ingrese destino del Bus");
                     destino = lector.readLine();
                     System.out.println("Ingrese Rut del Pasajero");
                     rut = lector.readLine();
-                   ((Bus)(Ter.andenes.get(destino))).eliminarPasajero(rut);
+                   Ter.obtenerBus(destino).eliminarPasajero(rut);
                   break;
                 case 4:
                     System.out.println("Ingrese nuevo destino de Bus");

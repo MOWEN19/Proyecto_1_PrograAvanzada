@@ -1,15 +1,18 @@
 public class Pasajero{
     private String nombre;
     private String rut;
+    private String tipoPasajero;
 
     public Pasajero(){
       this.nombre = null;
       this.rut = null;
+      this.tipoPasajero = null;
     }
     
-    public Pasajero(String nombre, String rut){
+    public Pasajero(String nombre, String rut, String tipoPasajero){
       this.nombre = nombre;
       this.rut = rut;
+      this.tipoPasajero = tipoPasajero;
     }
 
     
@@ -27,5 +30,13 @@ public class Pasajero{
 
     public String getRut(){
       return rut;
+    }
+
+    public void setTipoPasajero(String tipoPasajero){
+      this.tipoPasajero = tipoPasajero;
+    }
+
+    public String getTipoPasajero(){
+      return tipoPasajero;
     }
   }
