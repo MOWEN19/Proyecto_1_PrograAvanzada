@@ -1,4 +1,8 @@
 import java.util.HashMap;
+import javax.swing.JTable;
+import javax.swing.table.TableModel;
+import javax.swing.table.DefaultTableModel;
+
 
 public class Bus{
     // private Pasajero[] listado;
@@ -17,11 +21,14 @@ public class Bus{
 
 
     //Funcion para mostrar los pasajeros en orden
-    public void listarPasajero(){
+    public void listarPasajero(JTable Tabla){
       //System.out.println(listado);
+      DefaultTableModel mm = (DefaultTableModel) Tabla.getModel();
       for(int i = 1;i<=20;i++){
-        if(listado.containsKey(i)){
-          System.out.println(i + listado.get(i).getNombre());
+        if(this.listado.containsKey(i)){
+          System.out.println(i + this.listado.get(i).getNombre());
+          Object[] nuevaFila = {i, this.listado.get(i).getNombre(), this.listado.get(i).getRut()};
+          mm.addRow(nuevaFila);
         }
       }
     }
@@ -66,6 +73,21 @@ public class Bus{
       }
     }
     
+    public Pasajero obtenerPasajero(String Rut){
+        //(Bus)(Ter.andenes.get("Quilpue"))
+        for(int i=1;i<=20;i++){
+        if(listado.containsKey(i)){
+        Pasajero pp = ((Pasajero)(listado.get(i)));
+            if((pp.getRut()).equals(Rut)){
+                System.out.println("------------------------------------------------------------");
+                return pp;
+            }
+        }
+        
+      }
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+        return null; // Excepcion 
+    }
     
     public void setDestino(String destino){
       this.destino = destino;

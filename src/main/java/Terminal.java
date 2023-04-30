@@ -77,11 +77,10 @@ import java.io.*;
             String rut = csv.get_csvField(linea, 0);
             String nombre = csv.get_csvField(linea, 1);
             String tipoPasajero = csv.get_csvField(linea, 2);
-            
-            String datosLinea[] = new String[3];
-            datosLinea[0] = nombre;
-            datosLinea[1] = rut;
-            datosLinea[1] = tipoPasajero;
+            //String datosLinea[] = new String[3];
+            //datosLinea[0] = nombre;
+            //datosLinea[1] = rut;
+            //datosLinea[2] = tipoPasajero;
             //System.out.print(datosLinea[1]);
             //System.out.print("");
             //System.out.print(datosLinea[0]);

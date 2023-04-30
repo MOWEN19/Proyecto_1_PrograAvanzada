@@ -14,7 +14,6 @@ public class Pasajero{
       this.rut = rut;
       this.tipoPasajero = tipoPasajero;
     }
-
     
     public void setNombre(String nombre){
       this.nombre = nombre;
