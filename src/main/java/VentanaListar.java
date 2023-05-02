@@ -147,8 +147,19 @@ public class VentanaListar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        Bus bb = Ter.obtenerBus(DestinoListar.getText());
-        bb.listarPasajero(Tabla1);
+        
+        
+        
+        try{
+            Bus bb = Ter.obtenerBus(DestinoListar.getText());
+            bb.listarPasajero(Tabla1);
+        }
+        catch(NoExisteBusException e){
+            //Mensaje de error nueva ventana
+            VentanaErrorNoExisteBus VentanaES = new VentanaErrorNoExisteBus();
+            VentanaES.setVisible(true);
+        }
+       
         
     }//GEN-LAST:event_jButton2MouseClicked
 

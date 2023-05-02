@@ -23,7 +23,10 @@ public class Bus{
     //Funcion para mostrar los pasajeros en orden
     public void listarPasajero(JTable Tabla){
       //System.out.println(listado);
+      
       DefaultTableModel mm = (DefaultTableModel) Tabla.getModel();
+      mm.setRowCount(0);
+      Tabla.repaint();
       for(int i = 1;i<=20;i++){
         if(this.listado.containsKey(i)){
           System.out.println(i + this.listado.get(i).getNombre());
@@ -35,28 +38,41 @@ public class Bus{
 
     
     // Funcion para agregar personas con asiento personalizado
-    public void agregarPasajero(Pasajero pasajero,int asiento){
-      if(asiento>20 || asiento<1){
-        System.out.println("Numero no disponible");
-        return;
+    public boolean agregarPasajero(Pasajero pasajero,int asiento){
+      //if(asiento>20 || asiento<1){
+      //  System.out.println("Numero no disponible");
+      //  return false;
+      //}
+      try{
+          if(asiento > 20 || asiento < 1){
+              throw new ErrorAsientoException("Asiento No Valido");
+          }
+          
+          if(listado.containsKey(asiento)){
+            System.out.println("Asiento ya ocupado");
+            return false;
+          }
+          listado.put(asiento, pasajero);
+          System.out.println("Asiento asignado exitosamente");
+          return true;
       }
-      if(listado.containsKey(asiento)){
-        System.out.println("Asiento ya ocupado");
-        return;
+      catch(ErrorAsientoException e){
+           VentanaErrorAsiento VentanaEA = new VentanaErrorAsiento();
+           VentanaEA.setVisible(true);
+           return false;
       }
-      listado.put(asiento, pasajero);
-      System.out.println("Asiento asignado exitosamente");
     }
 
     // Funcion para agregar personas con el asiento disponible
 
-    public void agregarPasajero(Pasajero pasajero){
+    public boolean agregarPasajero(Pasajero pasajero){
       for(int i=0;i<=20;i++){
         if(!listado.containsKey(i)){
           listado.put(i,pasajero);
-          return;
+          return true;
         }
       }
+      return false;
     }
 
 
@@ -92,10 +108,21 @@ public class Bus{
     public void setDestino(String destino){
       this.destino = destino;
     }
-
+    
+    public Pasajero getAsiento(int i){
+        
+        if (listado.containsKey(i)){
+            return listado.get(i);
+        }
+        return null;
+    }
+    
     public String getDestino(){
       return destino;
     }
     
+    public int getTamaño(){
+        return listado.size();
+    }
     
     }

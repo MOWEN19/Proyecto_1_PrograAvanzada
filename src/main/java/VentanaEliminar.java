@@ -30,7 +30,7 @@ public class VentanaEliminar extends javax.swing.JFrame {
         RutEliminar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         DestinoEliminar = new javax.swing.JTextField();
-        Eliminarsdassa = new javax.swing.JButton();
+        Eliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,15 +63,15 @@ public class VentanaEliminar extends javax.swing.JFrame {
             }
         });
 
-        Eliminarsdassa.setText("Eliminar");
-        Eliminarsdassa.addMouseListener(new java.awt.event.MouseAdapter() {
+        Eliminar.setText("Eliminar");
+        Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EliminarsdassaMouseClicked(evt);
+                EliminarMouseClicked(evt);
             }
         });
-        Eliminarsdassa.addActionListener(new java.awt.event.ActionListener() {
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarsdassaActionPerformed(evt);
+                EliminarActionPerformed(evt);
             }
         });
 
@@ -98,7 +98,7 @@ public class VentanaEliminar extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(39, 39, 39))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Eliminarsdassa)
+                        .addComponent(Eliminar)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -111,7 +111,7 @@ public class VentanaEliminar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RutEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
-                .addComponent(Eliminarsdassa)
+                .addComponent(Eliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -138,13 +138,21 @@ public class VentanaEliminar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void EliminarsdassaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarsdassaMouseClicked
-        Ter.obtenerBus(DestinoEliminar.getText()).eliminarPasajero(RutEliminar.getText());
-    }//GEN-LAST:event_EliminarsdassaMouseClicked
+    private void EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarMouseClicked
+        
+        try{
+            Ter.obtenerBus(DestinoEliminar.getText()).eliminarPasajero(RutEliminar.getText());
+        }
+        catch(NoExisteBusException e){
+            VentanaErrorNoExisteBus VentanaES = new VentanaErrorNoExisteBus();
+            VentanaES.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_EliminarMouseClicked
 
-    private void EliminarsdassaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarsdassaActionPerformed
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EliminarsdassaActionPerformed
+    }//GEN-LAST:event_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,7 +191,7 @@ public class VentanaEliminar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DestinoEliminar;
-    private javax.swing.JButton Eliminarsdassa;
+    private javax.swing.JButton Eliminar;
     private javax.swing.JTextField RutEliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

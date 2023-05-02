@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="proyecto1Java">
+  <ClassDiagramComponents>
+    <Class name="Bus" package="" visibility="public" xPosition="82.0" yPosition="214.0">
+      <Fields>
+        <Field name="listado" type="HashMap&lt;Integer, Pasajero&gt;" visibility="package"/>
+        <Field name="destino" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="destino"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="listarPasajero" returnType="void" visibility="public"/>
+        <Method name="agregarPasajero" returnType="void" visibility="public">
+          <Argument type="Pasajero" name="pasajero"/>
+          <Argument type="int" name="asiento"/>
+        </Method>
+        <Method name="agregarPasajero" returnType="void" visibility="public">
+          <Argument type="Pasajero" name="pasajero"/>
+        </Method>
+        <Method name="eliminarPasajero" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="setDestino" returnType="void" visibility="public">
+          <Argument type="String" name="destino"/>
+        </Method>
+        <Method name="getDestino" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="" visibility="public" xPosition="227.0" yPosition="38.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="arg"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Pasajero" package="" visibility="public" xPosition="660.0" yPosition="435.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="rut" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setRut" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="getRut" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Terminal" package="" visibility="public" xPosition="642.0" yPosition="55.0">
+      <Fields>
+        <Field name="andenes" type="HashMap&lt;String, Bus&gt;" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarBus" returnType="void" visibility="public">
+          <Argument type="String" name="destino"/>
+          <Argument type="Bus" name="bus"/>
+        </Method>
+        <Method name="agregarBus" returnType="void" visibility="public">
+          <Argument type="String" name="destino"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Terminal" target="Bus" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Bus" target="Pasajero" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listado" source="Bus" target="Pasajero" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;Integer, Pasajero&gt;"/>
+    <HasRelation name="andenes" source="Terminal" target="Bus" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, Bus&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

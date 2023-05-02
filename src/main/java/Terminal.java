@@ -50,22 +50,24 @@ import java.io.*;
       }
     }
     
-    public Bus obtenerBus(String clave){
-        //(Bus)(Ter.andenes.get("Quilpue"))
+    public Bus obtenerBus(String clave) throws NoExisteBusException{
+        
         if(!andenes.containsKey(clave)){
-            return null;
+            throw new NoExisteBusException("No existe Bus");
         }
         if (clave != null){
             return andenes.get(clave);
         }
         
-        return null; // Excepcion 
+        throw new NoExisteBusException("No existe Bus");
+        
     }
     
     private static class Hashmap extends HashMap<String, Bus> {
         public Hashmap() {
         }
     }
+    
     //FileNotFoundException,
     public void leerPasajeros()throws IOException{
         //Scanner archivo = new Scanner(new File("Personas.csv"));
@@ -77,16 +79,17 @@ import java.io.*;
             String rut = csv.get_csvField(linea, 0);
             String nombre = csv.get_csvField(linea, 1);
             String tipoPasajero = csv.get_csvField(linea, 2);
-            //String datosLinea[] = new String[3];
-            //datosLinea[0] = nombre;
-            //datosLinea[1] = rut;
-            //datosLinea[2] = tipoPasajero;
-            //System.out.print(datosLinea[1]);
-            //System.out.print("");
-            //System.out.print(datosLinea[0]);
-            //System.out.print("");
-            //System.out.println(datosLinea[2]);
+            
             Pasajero PasajeroAux = new Pasajero(nombre,rut,tipoPasajero);
+            if ( ((Bus)andenes.get("Quilpue")).getTamaño() <= 20 ){
+                ((Bus)andenes.get("Quilpue")).agregarPasajero(PasajeroAux);
+            }
+            else if ( ((Bus)andenes.get("Santiago")).getTamaño() <= 20 ){
+                ((Bus)andenes.get("Santiago")).agregarPasajero(PasajeroAux);
+            }
+            else if ( ((Bus)andenes.get("SanAntonio")).getTamaño() <= 20 ){
+                ((Bus)andenes.get("SanAntonio")).agregarPasajero(PasajeroAux);
+            }
             
         }
     }

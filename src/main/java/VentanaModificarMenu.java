@@ -33,6 +33,8 @@ public class VentanaModificarMenu extends javax.swing.JFrame {
         BotonCambioAsiento = new javax.swing.JButton();
         Volver = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        RutModificar = new javax.swing.JTextField();
+        DestinoModificar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,6 +105,20 @@ public class VentanaModificarMenu extends javax.swing.JFrame {
 
         jLabel2.setText("En el mismo Bus");
 
+        RutModificar.setText("Rut");
+        RutModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RutModificarActionPerformed(evt);
+            }
+        });
+
+        DestinoModificar.setText("Destino Actual");
+        DestinoModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DestinoModificarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,45 +134,46 @@ public class VentanaModificarMenu extends javax.swing.JFrame {
                         .addComponent(Volver)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(BotonNombre))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(BotonTipoPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(BotonCambioAsiento)
-                        .addGap(0, 40, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotonCambioBus)
-                        .addGap(51, 51, 51))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(64, 64, 64))
+                .addGap(79, 79, 79))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonNombre)
+                    .addComponent(RutModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonTipoPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonCambioBus)
+                    .addComponent(BotonCambioAsiento)
+                    .addComponent(DestinoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonNombre)
-                    .addComponent(BotonCambioBus))
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonTipoPasajero)
-                    .addComponent(BotonCambioAsiento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(Volver)
-                .addContainerGap())
+                    .addComponent(RutModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DestinoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Volver, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotonNombre)
+                            .addComponent(BotonCambioBus))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotonTipoPasajero)
+                            .addComponent(BotonCambioAsiento))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(44, 44, 44)))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -167,7 +184,9 @@ public class VentanaModificarMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonNombreActionPerformed
 
     private void BotonNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonNombreMouseClicked
-        // TODO add your handling code here:
+        VentanaModNombre VentanaN = new VentanaModNombre(Ter,RutModificar.getText(),DestinoModificar.getText());
+        VentanaN.setVisible(true);
+        
     }//GEN-LAST:event_BotonNombreMouseClicked
 
     private void BotonCambioBusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonCambioBusMouseClicked
@@ -175,11 +194,13 @@ public class VentanaModificarMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCambioBusMouseClicked
 
     private void BotonCambioBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCambioBusActionPerformed
-        // TODO add your handling code here:
+        VentanaCamBus VentanaB = new VentanaCamBus(Ter,RutModificar.getText(),DestinoModificar.getText());
+        VentanaB.setVisible(true);
     }//GEN-LAST:event_BotonCambioBusActionPerformed
 
     private void BotonTipoPasajeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonTipoPasajeroMouseClicked
-        // TODO add your handling code here:
+        VentanaModTipo VentanaT = new VentanaModTipo(Ter,RutModificar.getText(),DestinoModificar.getText());
+        VentanaT.setVisible(true);
     }//GEN-LAST:event_BotonTipoPasajeroMouseClicked
 
     private void BotonTipoPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTipoPasajeroActionPerformed
@@ -191,7 +212,8 @@ public class VentanaModificarMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCambioAsientoActionPerformed
 
     private void BotonCambioAsientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonCambioAsientoMouseClicked
-        // TODO add your handling code here:
+        VentanaCamAsiento VentanaA = new VentanaCamAsiento(Ter,RutModificar.getText(),DestinoModificar.getText());
+        VentanaA.setVisible(true);
     }//GEN-LAST:event_BotonCambioAsientoMouseClicked
 
     private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
@@ -201,6 +223,14 @@ public class VentanaModificarMenu extends javax.swing.JFrame {
     private void VolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VolverMouseClicked
         this.dispose();
     }//GEN-LAST:event_VolverMouseClicked
+
+    private void RutModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RutModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RutModificarActionPerformed
+
+    private void DestinoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DestinoModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DestinoModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,6 +273,8 @@ public class VentanaModificarMenu extends javax.swing.JFrame {
     private javax.swing.JButton BotonCambioBus;
     private javax.swing.JButton BotonNombre;
     private javax.swing.JButton BotonTipoPasajero;
+    private javax.swing.JTextField DestinoModificar;
+    private javax.swing.JTextField RutModificar;
     private javax.swing.JButton Volver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -170,15 +170,33 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
     }//GEN-LAST:event_NombreAgregarActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        Pasajero pp = new Pasajero(NombreAgregar.getText(),RutAgregar.getText(),TipoAgregar.getText());
+        try{
+            Pasajero pp = new Pasajero(NombreAgregar.getText(),RutAgregar.getText(),TipoAgregar.getText());
+            int i = Integer.parseInt(NumAsiento.getText());
+            if (i == 0){
+                Ter.obtenerBus(DestinoAgregar.getText()).agregarPasajero(pp);
+            }
+            else {
+                Ter.obtenerBus(DestinoAgregar.getText()).agregarPasajero(pp,i);
+            }
+           
+        }
+        catch(NoExisteBusException e){
+            //Mensaje de error nueva ventana
+            VentanaErrorNoExisteBus VentanaES = new VentanaErrorNoExisteBus();
+            VentanaES.setVisible(true);
+        }
+        catch(Exception e){
+            VentanaErrorAsiento VentanaEA = new VentanaErrorAsiento();
+            VentanaEA.setVisible(true);
+            this.dispose();
+        }
         
-        int i = Integer.parseInt(NumAsiento.getText());
-        if (i == 0){
-            Ter.obtenerBus(DestinoAgregar.getText()).agregarPasajero(pp);
-        }
-        else{
-            Ter.obtenerBus(DestinoAgregar.getText()).agregarPasajero(pp,i);
-        }
+        
+        
+        VentanaMain VentanaMenuPrincipal = new VentanaMain(Ter);
+        VentanaMenuPrincipal.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void RutAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RutAgregarActionPerformed
